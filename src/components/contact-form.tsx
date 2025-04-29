@@ -5,20 +5,19 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(2, {
     message: "name must be at least 2 characters.",
+  }),
+  email: z.string().email({
+    message: "Invalid email address.",
+  }),
+  message: z.string().min(2, {
+    message: "message must be at least 2 characters.",
   }),
 });
 
@@ -27,6 +26,8 @@ export function ContactForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
+      email: "",
+      message: "",
     },
   });
 
@@ -36,19 +37,19 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <div className="flex">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-6 w-full"
+      >
+        <div className="grid sm:grid-cols-2 grid-cols-1 gap-6 justify-between">
           <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Full Name</FormLabel>
+              <FormItem className="w-full">
                 <FormControl>
-                  <Input placeholder="shadcn" {...field} />
+                  <Input placeholder="Full Name" type="name" {...field} />
                 </FormControl>
-
-                <FormMessage />
               </FormItem>
             )}
           />
@@ -56,18 +57,33 @@ export function ContactForm() {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
+              <FormItem className="w-full">
                 <FormControl>
-                  <Input placeholder="shadcn" {...field} />
+                  <Input placeholder="Email" type="email" {...field} />
                 </FormControl>
-
-                <FormMessage />
               </FormItem>
             )}
           />
         </div>
-        <Button type="submit">Submit</Button>
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <Textarea
+                  className="resize-none h-40"
+                  placeholder="Leave your message here ..."
+                  {...field}
+                />
+              </FormControl>
+            </FormItem>
+          )}
+        />
+
+        <Button className="w-full" size="lg" type="submit">
+          Send Message
+        </Button>
       </form>
     </Form>
   );

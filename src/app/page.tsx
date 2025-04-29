@@ -1,85 +1,61 @@
 "use client";
 import { DockDemo } from "@/components/dock-component";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
+
 import React from "react";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { ContactForm } from "@/components/contact-form";
-// import Autoplay from "embla-carousel-autoplay";
 import { SectionLayout } from "@/layouts/section-layout";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { CarouselSection } from "@/components/sections/carousel-section";
+import { TestimonialsSection } from "@/components/sections/testimonials-section";
 
 export default function Home() {
-  const handleTestAPI = async () => {
-    console.log("HITTING HERE 0/4");
-
-    const response = await fetch(`/api/testApi`, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    });
-    console.log("API RESPONSE 2/4", response);
-  };
-
   return (
-    <main className="flex flex-col items-center max-w-[1000px] mx-auto">
-      <SectionLayout>
-        <DockDemo />
-        <div className="flex flex-col gap-6">
+    <main className="flex flex-col items-center mx-auto overflow-hidden">
+      <SectionLayout className="max-w-[1000px] md:px-40 sm:px-10 px-4">
+        <nav className="flex justify-between w-full items-center">
+          <div className="flex gap-4 font-medium">
+            <p className="cursor-pointer hover:black/70 duration-300 transition-all">
+              Portfolio
+            </p>
+            <p className="cursor-pointer hover:black/70 duration-300">About</p>
+            <p className="cursor-pointer hover:black/70 duration-300">
+              Contact
+            </p>
+          </div>
+          <DockDemo />
+        </nav>
+
+        <div className="flex flex-col gap-6 w-full h-full justify-center">
           <Image
             className="rounded-full"
             src="/avatar.png"
             alt="Avatar"
-            width={120}
-            height={120}
+            width={150}
+            height={150}
           />
-          <h1 className="font-bold text-4xl">
+          <h1 className="font-bold text-5xl leading-tight">
             Hey im Jimmy.
             <br />
-            Software & Product Manager Engineer{" "}
+            Software & Product Engineer{" "}
           </h1>
           <p>
             Crafting Seamless Digital Experiences Lorem ipsum dolor sit amet
             consectetur adipisicing elit. Quisquam, quos.
           </p>
-        </div>
-        <div className="flex gap-4">
-          <Button onClick={handleTestAPI}>Deploy Now</Button>
-          <Button variant="secondary">Deploy Now</Button>
+          <div className="flex gap-4">
+            <InteractiveHoverButton>Contact Me</InteractiveHoverButton>
+            <ShimmerButton>Browse Portfolio</ShimmerButton>
+          </div>
         </div>
       </SectionLayout>
 
-      <SectionLayout>
-        {" "}
-        {/* plugins={[plugin.current]} */}
-        <Carousel className="w-full">
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index}>
-                <Card>
-                  <CardContent className="flex items-center justify-center p-6">
-                    <AspectRatio ratio={16 / 9}>
-                      {/* <Image src="/avatar.png" alt="Avatar" fill />  */}
-                    </AspectRatio>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </SectionLayout>
+      <CarouselSection />
 
-      <SectionLayout>
-        <div className="flex flex-col gap-4 h-full justify-center px-40">
-          <h2 className="text-3xl font-bold">About</h2>
+      <SectionLayout className="max-w-[1000px] md:px-40 sm:px-10 px-4">
+        <div className="flex flex-col gap-4 h-full justify-center">
+          <h2 className="text-4xl font-bold">About</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
             quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -95,10 +71,17 @@ export default function Home() {
         </div>
       </SectionLayout>
 
-      <SectionLayout>
-        <h2 className="text-3xl font-bold">Get in Touch</h2>
-        <p>Get in touch for any request</p>
-        <ContactForm />
+      <TestimonialsSection />
+
+      <SectionLayout className="max-w-[1000px] md:px-40 sm:px-10 px-4">
+        <div className="flex flex-col gap-4 h-full justify-center">
+          <h2 className="text-4xl font-bold text">Get in Touch </h2>
+          <p className="text-muted-foreground text-sm">
+            Get in touch for any request
+          </p>
+
+          <ContactForm />
+        </div>
       </SectionLayout>
     </main>
   );
