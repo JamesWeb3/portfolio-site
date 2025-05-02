@@ -9,6 +9,7 @@ import { AvatarCircles } from "@/components/ui/avatar-circles";
 import { avatars } from "@/data/avatars";
 import Image from "next/image";
 import Link from "next/link";
+import { TextAnimate } from "@/components/magicui/text-animate";
 
 export default function Home() {
   return (
@@ -20,12 +21,13 @@ export default function Home() {
         <HeroSection />
       </SectionLayout>
       <SectionLayout id="portfolio">
+      <TextAnimate animation="slideLeft" by="character" className="text-4xl font-bold">Portfolio </TextAnimate>
         <CarouselSection />
       </SectionLayout>
 
       <SectionLayout id="about" className="max-w-[1000px] md:px-40">
         <div className="flex flex-col gap-4 h-full justify-center">
-          <h2 className="text-4xl font-bold">About</h2>
+        <TextAnimate animation="slideLeft" by="character" className="text-4xl font-bold">About</TextAnimate>
 
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
@@ -36,7 +38,13 @@ export default function Home() {
             <br />
             <div className="flex items-center gap-2">
               Software Engineer for
-              <Link href="https://morningside.ai" target="_blank" className="text-[#469c71] hover:text-[#469c71]/80 transition-all duration-200  font-semibold">Morningside AI</Link>
+              <Link
+                href="https://morningside.ai"
+                target="_blank"
+                className="text-[#469c71] hover:text-[#469c71]/80 transition-all duration-200  font-semibold"
+              >
+                Morningside AI
+              </Link>
               <Image
                 src="/msai_logo.png"
                 alt="Morningside Logo"
@@ -57,7 +65,7 @@ export default function Home() {
         className="max-w-[1000px] md:px-40 w-full"
         id="testimonials"
       >
-        <h2 className="text-4xl font-bold">Testimonials</h2>
+        <TextAnimate animation="slideLeft" by="character" className="text-4xl font-bold">Testimonials</TextAnimate>
         <p className="text-muted-foreground text-sm">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
           quos.
@@ -68,7 +76,7 @@ export default function Home() {
 
       <SectionLayout id="contact" className="max-w-[1000px] md:px-40 w-full">
         <div className="w-full">
-          <h2 className="text-4xl font-bold text">Get in Touch </h2>
+        <TextAnimate animation="slideLeft" by="character" className="text-4xl font-bold">Get in Touch</TextAnimate>
           <p className="text-muted-foreground text-sm">
             Get in touch for any request
           </p>

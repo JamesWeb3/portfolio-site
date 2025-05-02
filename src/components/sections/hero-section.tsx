@@ -3,6 +3,7 @@ import Image from "next/image";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { handleScroll } from "@/lib/useScroll";
+import { TextAnimate } from "../magicui/text-animate";
 
 export const HeroSection = () => {
   return (
@@ -20,14 +21,26 @@ export const HeroSection = () => {
           height={150}
         />
         <h1 className="font-bold text-5xl leading-tight">
-          Hey im Jimmy.
-          <br />
-          Software & Product Engineer{" "}
+          <TextAnimate
+            animation="slideLeft"
+            by="character"
+            className="text-5xl font-bold"
+          >
+            Hey im Jimmy.
+          </TextAnimate>
+          <TextAnimate
+            animation="slideLeft"
+            by="word"
+            delay={0.3}
+            className="text-5xl font-bold mt-4"
+          >
+            Software & Product Engineer
+          </TextAnimate>{" "}
         </h1>
-        <p>
+        <TextAnimate animation="slideLeft" by="word" delay={0.3}>
           Crafting Seamless Digital Experiences Lorem ipsum dolor sit amet
           consectetur adipisicing elit. Quisquam, quos.
-        </p>
+        </TextAnimate>
         <div className="flex gap-4">
           <InteractiveHoverButton
             onClick={() => {
