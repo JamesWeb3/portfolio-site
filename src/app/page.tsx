@@ -1,67 +1,50 @@
 "use client";
-import { DockDemo } from "@/components/dock-component";
-import Image from "next/image";
-
 import React from "react";
 import { ContactForm } from "@/components/contact-form";
 import { SectionLayout } from "@/layouts/section-layout";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
-import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { CarouselSection } from "@/components/sections/carousel-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { HeroSection } from "@/components/sections/hero-section";
+import { AvatarCircles } from "@/components/ui/avatar-circles";
+import { avatars } from "@/data/avatars";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center mx-auto overflow-hidden">
-      <SectionLayout className="max-w-[1000px] md:px-40 sm:px-10 px-4">
-        <nav className="flex justify-between w-full items-center">
-          <div className="flex gap-4 font-medium">
-            <p className="cursor-pointer hover:black/70 duration-300 transition-all">
-              Portfolio
-            </p>
-            <p className="cursor-pointer hover:black/70 duration-300">About</p>
-            <p className="cursor-pointer hover:black/70 duration-300">
-              Contact
-            </p>
-          </div>
-          <DockDemo />
-        </nav>
-
-        <div className="flex flex-col gap-6 w-full h-full justify-center">
-          <Image
-            className="rounded-full"
-            src="/avatar.png"
-            alt="Avatar"
-            width={150}
-            height={150}
-          />
-          <h1 className="font-bold text-5xl leading-tight">
-            Hey im Jimmy.
-            <br />
-            Software & Product Engineer{" "}
-          </h1>
-          <p>
-            Crafting Seamless Digital Experiences Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Quisquam, quos.
-          </p>
-          <div className="flex gap-4">
-            <InteractiveHoverButton>Contact Me</InteractiveHoverButton>
-            <ShimmerButton>Browse Portfolio</ShimmerButton>
-          </div>
-        </div>
+      <SectionLayout
+        id="hero"
+        className="max-w-[1000px] md:px-40 sm:px-10 px-4"
+      >
+        <HeroSection />
+      </SectionLayout>
+      <SectionLayout id="portfolio">
+        <CarouselSection />
       </SectionLayout>
 
-      <CarouselSection />
-
-      <SectionLayout className="max-w-[1000px] md:px-40 sm:px-10 px-4">
+      <SectionLayout id="about" className="max-w-[1000px] md:px-40">
         <div className="flex flex-col gap-4 h-full justify-center">
           <h2 className="text-4xl font-bold">About</h2>
+
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
             quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing
             elit. Quisquam, quos.
             <br />
+            <br />
+            <div className="flex items-center gap-2">
+              Software Engineer for
+              <Link href="https://morningside.ai" target="_blank" className="text-[#469c71] hover:text-[#469c71]/80 transition-all duration-200  font-semibold">Morningside AI</Link>
+              <Image
+                src="/msai_logo.png"
+                alt="Morningside Logo"
+                width={30}
+                height={30}
+                className="rounded-full"
+              />
+            </div>
             <br />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
             quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -70,18 +53,32 @@ export default function Home() {
           </p>
         </div>
       </SectionLayout>
+      <SectionLayout
+        className="max-w-[1000px] md:px-40 w-full"
+        id="testimonials"
+      >
+        <h2 className="text-4xl font-bold">Testimonials</h2>
+        <p className="text-muted-foreground text-sm">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+          quos.
+        </p>
+        <AvatarCircles numPeople={99} avatarUrls={avatars} />
+        <TestimonialsSection />
+      </SectionLayout>
 
-      <TestimonialsSection />
-
-      <SectionLayout className="max-w-[1000px] md:px-40 sm:px-10 px-4">
-        <div className="flex flex-col gap-4 h-full justify-center">
+      <SectionLayout id="contact" className="max-w-[1000px] md:px-40 w-full">
+        <div className="w-full">
           <h2 className="text-4xl font-bold text">Get in Touch </h2>
           <p className="text-muted-foreground text-sm">
             Get in touch for any request
           </p>
-
-          <ContactForm />
         </div>
+
+        <ContactForm />
+      </SectionLayout>
+
+      <SectionLayout id="footer" className="h-40 max-w-[1000px] md:px-40">
+        hi
       </SectionLayout>
     </main>
   );
