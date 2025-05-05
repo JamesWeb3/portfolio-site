@@ -51,7 +51,10 @@ export const CarouselSection = () => {
     >
       <CarouselContent className="gap-6">
         {CAROUSEL_ITEMS.map((item, index) => (
-          <CarouselItem key={index} className="basis-[50%] p-2">
+          <CarouselItem
+            key={index}
+            className="lg:basis-[50%] md:basis-[70%]  p-2 md:pl-0 pl-5"
+          >
             <Card className="relative group overflow-hidden py-0 shadow-md">
               <CardContent className="flex items-center justify-center px-0">
                 <AspectRatio ratio={16 / 8} className="w-full">
@@ -64,7 +67,6 @@ export const CarouselSection = () => {
                   />
                 </AspectRatio>
 
-   
                 <div className="absolute bottom-0 left-0 w-full h-1/3 bg-black/70 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-3 flex flex-col justify-end">
                   <h3 className="text-lg font-semibold">{item.title}</h3>
                   <p className="text-sm text-gray-300 mb-2">
@@ -84,8 +86,8 @@ export const CarouselSection = () => {
         <CarouselPrevious />
         <CarouselNext />
       </div>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 lg:w-1/4 md:w-1/6 bg-gradient-to-r from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 lg:w-1/4 md:w-1/6 bg-gradient-to-l from-background"></div>
     </Carousel>
   );
 };

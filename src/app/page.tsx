@@ -54,13 +54,13 @@ export default function Home() {
             About
           </TextAnimate>
 
-          <p className="text-muted-foreground">
+          <div className="text-muted-foreground">
             In 2021 I graduated from the Auckland University of Technology with
             a degree in Mechnical Engineer. After struggling to find interest in
             this career I quickly switched to software 👀.
             <br />
             <br />
-            <p className="flex items-center flex-wrap gap-2">
+            <div className="flex items-center flex-wrap gap-2">
               In 2023 I was employed as a fronteng engineer for
               <Link
                 href="https://morningside.ai"
@@ -81,8 +81,8 @@ export default function Home() {
               implemetning AI solutions into their business.
               <br />I have also had the opportunity to build and scale startups
               such as Agentive, now boasting over 50,000 users.
-            </p>
-          </p>
+            </div>
+          </div>
           <AboutSection />
         </div>
       </SectionLayout>

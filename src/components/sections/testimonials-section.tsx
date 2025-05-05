@@ -75,7 +75,10 @@ export const TestimonialsSection = () => {
     >
       <CarouselContent className="py-2">
         {TESTIMONIAL_ITEMS.map((testimonial, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-4.5">
+          <CarouselItem
+            key={index}
+            className="md:basis-1/2 lg:basis-1/3 pl-4.5"
+          >
             <Card className="relative group overflow-hidden h-full">
               <CardHeader className="flex items-center">
                 <Image
