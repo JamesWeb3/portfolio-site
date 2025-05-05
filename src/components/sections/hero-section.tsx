@@ -3,28 +3,28 @@ import Image from "next/image";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { handleScroll } from "@/lib/useScroll";
-import { TextAnimate } from "../magicui/text-animate";
+import { TextAnimate } from "../ui/text-animate";
 
 export const HeroSection = () => {
   return (
     <>
-      <nav className="flex justify-between w-full items-center">
+      <nav className="flex justify-between h-20 w-full items-center">
         <DockDemo />
       </nav>
 
-      <div className="flex flex-col gap-6 w-full h-full justify-center">
+      <div className="flex flex-col gap-6 w-full h-full justify-center mt-[-50px]">
         <Image
           className="rounded-full"
           src="/avatar.png"
           alt="Avatar"
-          width={150}
-          height={150}
+          width={200}
+          height={200}
         />
         <h1 className="font-bold text-5xl leading-tight">
           <TextAnimate
             animation="slideLeft"
             by="character"
-            className="text-5xl font-bold"
+            className="text-6xl font-bold"
           >
             Hey im Jimmy.
           </TextAnimate>
@@ -32,14 +32,13 @@ export const HeroSection = () => {
             animation="slideLeft"
             by="word"
             delay={0.3}
-            className="text-5xl font-bold mt-4"
+            className="text-4xl font-bold mt-4"
           >
-            Software & Product Engineer
+            A Software Engineer who loves AI
           </TextAnimate>{" "}
         </h1>
-        <TextAnimate animation="slideLeft" by="word" delay={0.3}>
-          Crafting Seamless Digital Experiences Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Quisquam, quos.
+        <TextAnimate animation="slideLeft" by="word" className="text-muted-foreground" delay={0.3}>
+        Im passionate about building intuitive, AI-powered products. I work across early-stage startups and fast-moving agency projects, turning ambitious ideas into polished digital experiences.
         </TextAnimate>
         <div className="flex gap-4">
           <InteractiveHoverButton

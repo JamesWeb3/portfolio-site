@@ -8,28 +8,37 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 const CAROUSEL_ITEMS = [
   {
     src: "/agentive.png",
-    alt: "Avatar",
-    title: "Avatar",
-    description: "Avatar",
-    button: "Button",
+    alt: "Agentive",
+    title: "Agentive SaaS",
+    description:
+      "Agentive is the go-to service delivery platform for AI Automation Agency owners. Easily create AI solutions for your clients. Boasting over 50,000 users.",
+    button: "https://agentivehub.com",
   },
   {
     src: "/morningsideai.png",
-    alt: "Avatar",
-    title: "Avatar",
+    alt: "Morningside AI",
+    title: "Morningside AI Website",
     description: "Avatar",
-    button: "Button",
+    button: "https://morningside.ai",
   },
   {
     src: "/aaaaccelerator.png",
     alt: "Avatar",
     title: "Avatar",
     description: "Avatar",
-    button: "Button",
+    button: "https://aaaaccelerator.com",
+  },
+  {
+    src: "/readyrns.png",
+    alt: "ReadyRNs",
+    title: "ReadyRNs",
+    description: "ReadyRNs",
+    button: "https://readyrns.com",
   },
 ];
 export const CarouselSection = () => {
@@ -38,31 +47,32 @@ export const CarouselSection = () => {
       opts={{
         loop: true,
       }}
-      className="w-full bg-red-500"
+      className="w-full"
     >
-      <CarouselContent className="-ml-[5%] gap-6">
+      <CarouselContent className="gap-6">
         {CAROUSEL_ITEMS.map((item, index) => (
-          <CarouselItem key={index} className="basis-[70%]">
-            <Card className="relative group overflow-hidden">
-              <CardContent className="flex items-center justify-center p-6 cursor-pointer">
-                <AspectRatio ratio={16 / 9}>
+          <CarouselItem key={index} className="basis-[50%] p-2">
+            <Card className="relative group overflow-hidden py-0 shadow-md">
+              <CardContent className="flex items-center justify-center px-0">
+                <AspectRatio ratio={16 / 8} className="w-full">
                   <Image
                     src={item.src}
                     alt={item.alt}
-                    fill
-                    className="object-cover"
+                    width={1280}
+                    height={720}
+                    className="w-full h-auto object-cover"
                   />
                 </AspectRatio>
 
-                {/* Hover overlay */}
+   
                 <div className="absolute bottom-0 left-0 w-full h-1/3 bg-black/70 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-3 flex flex-col justify-end">
                   <h3 className="text-lg font-semibold">{item.title}</h3>
                   <p className="text-sm text-gray-300 mb-2">
                     {item.description}
                   </p>
-                  <button className="mt-auto self-start bg-white text-black text-sm px-3 py-1 rounded hover:bg-gray-200">
+                  <Button className="mt-auto self-start bg-white text-black text-sm px-3 py-1 rounded hover:bg-gray-200">
                     {item.button}
-                  </button>
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -70,10 +80,12 @@ export const CarouselSection = () => {
         ))}
       </CarouselContent>
 
-      <div className="flex gap-4 bg-orange-500 absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="flex gap-4 absolute bottom-[-40px] left-1/2 -translate-x-1/2 -translate-y-1/2">
         <CarouselPrevious />
         <CarouselNext />
       </div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
     </Carousel>
   );
 };

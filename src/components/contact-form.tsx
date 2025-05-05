@@ -37,10 +37,7 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-6 w-full"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-full">
         <div className="grid sm:grid-cols-2 grid-cols-1 gap-6 justify-between">
           <FormField
             control={form.control}

@@ -72,11 +72,10 @@ export const TestimonialsSection = () => {
         loop: true,
         align: "start",
       }}
-     
     >
       <CarouselContent className="py-2">
         {TESTIMONIAL_ITEMS.map((testimonial, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-4.5">
             <Card className="relative group overflow-hidden h-full">
               <CardHeader className="flex items-center">
                 <Image
@@ -99,7 +98,7 @@ export const TestimonialsSection = () => {
         ))}
       </CarouselContent>
 
-      <div className="flex absolute bottom-[-30px] left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="flex absolute bottom-[-40px] left-1/2 -translate-x-1/2 -translate-y-1/2">
         <CarouselPrevious />
         <CarouselNext />
       </div>
