@@ -9,7 +9,6 @@ import {
   FigmaIcon,
   CursorIcon,
 } from "../ui/icons";
-
 const icons = [
   <OpenaiIcon key="openai" />,
   <AnthropicIcon key="anthropic" />,
@@ -24,8 +23,9 @@ const icons = [
 const firstRow = icons.slice(0, icons.length);
 
 export const AboutSection = () => {
+
   return (
-    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden max-w-[650px] py-10 md:px-40">
+    <div className="relative w-full flex-col items-center justify-center overflow-hidden py-10 md:px-40">
       <Marquee pauseOnHover className="[--duration:10s]">
         <div className="flex gap-12 items-center">
           {firstRow.map((icon) => (
@@ -44,3 +44,4 @@ export const AboutSection = () => {
     </div>
   );
 };
+

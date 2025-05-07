@@ -175,6 +175,7 @@ export const CursorIcon = () => {
       width="40px"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
+     className="mr-10"
     >
       <title>Cursor</title>
       <path

@@ -4,22 +4,27 @@ import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { handleScroll } from "@/lib/useScroll";
 import { TextAnimate } from "../ui/text-animate";
+import { BlurFade } from "../ui/blur-fade";
 
 export const HeroSection = () => {
   return (
     <>
       <nav className="flex justify-between h-20 w-full items-center">
-        <DockDemo />
+        <BlurFade delay={0.3} duration={0.3}>
+          <DockDemo />
+        </BlurFade>
       </nav>
 
       <div className="flex flex-col gap-6 w-full h-full justify-center mt-[-50px]">
-        <Image
-          className="rounded-full"
-          src="/avatar.png"
-          alt="Avatar"
-          width={200}
-          height={200}
-        />
+        <BlurFade>
+          <Image
+            className="rounded-full"
+            src="/avatar.png"
+            alt="Avatar"
+            width={200}
+            height={200}
+          />
+        </BlurFade>
         <h1 className="font-bold text-5xl leading-tight">
           <TextAnimate
             animation="slideLeft"
@@ -37,9 +42,17 @@ export const HeroSection = () => {
             A Software Engineer who loves AI
           </TextAnimate>{" "}
         </h1>
-        <TextAnimate animation="slideLeft" by="word" className="text-muted-foreground" delay={0.3}>
-        Im passionate about building intuitive, AI-powered products. I work across early-stage startups and fast-moving agency projects, turning ambitious ideas into polished digital experiences.
+        <TextAnimate
+          animation="slideLeft"
+          by="word"
+          className="text-muted-foreground"
+          delay={0.3}
+        >
+          Im passionate about building intuitive, AI-powered products. I work
+          across early-stage startups and fast-moving agency projects, turning
+          ambitious ideas into polished digital experiences.
         </TextAnimate>
+        <BlurFade delay={0.3} duration={0.3}>
         <div className="flex gap-4">
           <InteractiveHoverButton
             onClick={() => {
@@ -54,8 +67,9 @@ export const HeroSection = () => {
             }}
           >
             Browse Portfolio
-          </ShimmerButton>
-        </div>
+            </ShimmerButton>
+          </div>
+        </BlurFade>
       </div>
     </>
   );

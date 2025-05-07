@@ -22,7 +22,81 @@ export default function Home() {
       >
         <HeroSection />
       </SectionLayout>
-      <SectionLayout id="portfolio">
+
+      <SectionLayout id="about" className="max-w-[1000px] md:px-40 ">
+        <div className="flex flex-col gap-4 h-full justify-center">
+          <TextAnimate
+            animation="slideLeft"
+            by="character"
+            className="text-4xl font-bold"
+          >
+            About
+          </TextAnimate>
+
+          <TextAnimate
+            animation="slideLeft"
+            by="word"
+            className="text-muted-foreground"
+          >
+            In 2021 I graduated from the Auckland University of Technology with
+            a degree in Mechnical Engineer. After struggling to find interest in
+            this career I quickly switched to software.
+          </TextAnimate>
+
+          <BlurFade delay={0.3} duration={0.3}>
+            <div className="flex items-center flex-wrap gap-2">
+              <TextAnimate
+                animation="slideLeft"
+                by="character"
+                className="text-muted-foreground"
+              >
+                In 2023 I was employed as a fronteng engineer for
+              </TextAnimate>
+              <BlurFade delay={0.3} duration={0.3}>
+                <Link
+                  href="https://morningside.ai"
+                  target="_blank"
+                  className="text-[#469c71] hover:text-[#469c71]/80 transition-all duration-200 font-semibold"
+                >
+                  Morningside AI
+                </Link>
+                <Image
+                  src="/msai_logo.png"
+                  alt="Morningside Logo"
+                  width={20}
+                  height={20}
+                  className="rounded-full inline-block mb-2 ml-3"
+                />
+              </BlurFade>
+              <TextAnimate
+                animation="slideLeft"
+                by="character"
+                className="text-muted-foreground"
+                delay={0.3}
+              >
+                Since then I have worked with some of the biggest clients in the
+                world such as the Milwaukee Bucks NBA team, with a mission of
+                implemetning AI solutions into their business.
+              </TextAnimate>
+              <TextAnimate
+                animation="slideLeft"
+                by="character"
+                className="text-muted-foreground"
+                delay={0.5}
+              >
+                I have also had the opportunity to build and scale startups such
+                as Agentive, now boasting over 50,000 users.
+              </TextAnimate>
+            </div>
+          </BlurFade>
+        </div>
+      </SectionLayout>
+
+      <div className="w-full max-w-[1000px] mt-[-300px]">
+        <AboutSection />
+      </div>
+
+      <SectionLayout id="portfolio" className="mt-40">
         <div className="flex flex-col gap-4">
           <TextAnimate
             animation="slideLeft"
@@ -44,48 +118,6 @@ export default function Home() {
         </BlurFade>
       </SectionLayout>
 
-      <SectionLayout id="about" className="max-w-[1000px] md:px-40">
-        <div className="flex flex-col gap-4 h-full justify-center">
-          <TextAnimate
-            animation="slideLeft"
-            by="character"
-            className="text-4xl font-bold"
-          >
-            About
-          </TextAnimate>
-
-          <div className="text-muted-foreground">
-            In 2021 I graduated from the Auckland University of Technology with
-            a degree in Mechnical Engineer. After struggling to find interest in
-            this career I quickly switched to software 👀.
-            <br />
-            <br />
-            <div className="flex items-center flex-wrap gap-2">
-              In 2023 I was employed as a fronteng engineer for
-              <Link
-                href="https://morningside.ai"
-                target="_blank"
-                className="text-[#469c71] hover:text-[#469c71]/80 transition-all duration-200 font-semibold"
-              >
-                Morningside AI
-              </Link>
-              <Image
-                src="/msai_logo.png"
-                alt="Morningside Logo"
-                width={20}
-                height={20}
-                className="rounded-full inline-block"
-              />
-              Since then I have worked with some of the biggest clients in the
-              world such as the Milwaukee Bucks NBA team, with a mission of
-              implemetning AI solutions into their business.
-              <br />I have also had the opportunity to build and scale startups
-              such as Agentive, now boasting over 50,000 users.
-            </div>
-          </div>
-          <AboutSection />
-        </div>
-      </SectionLayout>
       <SectionLayout className="max-w-[1000px] w-full" id="testimonials">
         <TextAnimate
           animation="slideLeft"

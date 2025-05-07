@@ -53,8 +53,9 @@ export const CarouselSection = () => {
         {CAROUSEL_ITEMS.map((item, index) => (
           <CarouselItem
             key={index}
-            className="lg:basis-[50%] md:basis-[70%]  p-2 md:pl-0 pl-5"
+            className="lg:basis-[50%] md:basis-[70%] grid-cols-3  p-2 md:pl-0 pl-5"
           >
+            
             <Card className="relative group overflow-hidden py-0 shadow-md">
               <CardContent className="flex items-center justify-center px-0">
                 <AspectRatio ratio={16 / 8} className="w-full">
