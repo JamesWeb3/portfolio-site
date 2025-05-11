@@ -15,7 +15,7 @@ export const HeroSection = () => {
         </BlurFade>
       </nav>
 
-      <div className="flex flex-col gap-6 w-full h-full justify-center mt-[-50px]">
+      <div className="flex flex-col gap-6 w-full h-full justify-center md:mt-[-50px] mt-[50px]">
         <BlurFade>
           <Image
             className="rounded-full w-32 sm:w-40 md:w-48 lg:w-52"
