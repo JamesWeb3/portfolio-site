@@ -3,15 +3,12 @@ import React from "react";
 import { ContactForm } from "@/components/contact-form";
 import { SectionLayout } from "@/layouts/section-layout";
 import { CarouselSection } from "@/components/sections/carousel-section";
-import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { HeroSection } from "@/components/sections/hero-section";
-import { AvatarCircles } from "@/components/ui/avatar-circles";
-import { avatars } from "@/data/avatars";
-import Image from "next/image";
-import Link from "next/link";
 import { TextAnimate } from "@/components/ui/text-animate";
-import { AboutSection } from "@/components/sections/about-section";
+import { About2Section } from "@/components/sections/about2-section";
 import { BlurFade } from "@/components/ui/blur-fade";
+
+import { About1Section } from "@/components/sections/about1-section";
 
 export default function Home() {
   return (
@@ -24,76 +21,11 @@ export default function Home() {
       </SectionLayout>
 
       <SectionLayout id="about" className="max-w-[1000px] md:px-40 ">
-        <div className="flex flex-col gap-4 h-full justify-center">
-          <TextAnimate
-            animation="slideLeft"
-            by="character"
-            className="text-4xl font-bold"
-          >
-            About
-          </TextAnimate>
-
-          <TextAnimate
-            animation="slideLeft"
-            by="word"
-            className="text-muted-foreground"
-          >
-            In 2021 I graduated from the Auckland University of Technology with
-            a degree in Mechnical Engineer. After struggling to find interest in
-            this career I quickly switched to software.
-          </TextAnimate>
-
-          <BlurFade delay={0.3} duration={0.3}>
-            <div className="flex items-center flex-wrap gap-2">
-              <TextAnimate
-                animation="slideLeft"
-                by="character"
-                className="text-muted-foreground"
-              >
-                In 2023 I was employed as a fronteng engineer for
-              </TextAnimate>
-              <BlurFade delay={0.3} duration={0.3}>
-                <Link
-                  href="https://morningside.ai"
-                  target="_blank"
-                  className="text-[#469c71] hover:text-[#469c71]/80 transition-all duration-200 font-semibold"
-                >
-                  Morningside AI
-                </Link>
-                <Image
-                  src="/msai_logo.png"
-                  alt="Morningside Logo"
-                  width={20}
-                  height={20}
-                  className="rounded-full inline-block mb-2 ml-3"
-                />
-              </BlurFade>
-              <TextAnimate
-                animation="slideLeft"
-                by="character"
-                className="text-muted-foreground"
-                delay={0.3}
-              >
-                Since then I have worked with some of the biggest clients in the
-                world such as the Milwaukee Bucks NBA team, with a mission of
-                implemetning AI solutions into their business.
-              </TextAnimate>
-              <TextAnimate
-                animation="slideLeft"
-                by="character"
-                className="text-muted-foreground"
-                delay={0.5}
-              >
-                I have also had the opportunity to build and scale startups such
-                as Agentive, now boasting over 50,000 users.
-              </TextAnimate>
-            </div>
-          </BlurFade>
-        </div>
+       <About1Section/>
       </SectionLayout>
 
-      <div className="w-full max-w-[1000px] mt-[-300px]">
-        <AboutSection />
+      <div className="w-full max-w-[1000px] mt-[-250px]">
+        <About2Section />
       </div>
 
       <SectionLayout id="portfolio" className="mt-40">
@@ -110,7 +42,7 @@ export default function Home() {
             by="character"
             className="w-full text-center text-muted-foreground"
           >
-            Browse the different startups and projects I have worked on...
+            Browse the different startups and projects I have worked on.
           </TextAnimate>
         </div>
         <BlurFade className="w-full" delay={0.5} duration={0.5}>
@@ -118,7 +50,7 @@ export default function Home() {
         </BlurFade>
       </SectionLayout>
 
-      <SectionLayout className="max-w-[1000px] w-full" id="testimonials">
+      {/* <SectionLayout className="max-w-[1000px] w-full" id="testimonials">
         <TextAnimate
           animation="slideLeft"
           by="character"
@@ -137,7 +69,7 @@ export default function Home() {
           <AvatarCircles numPeople={4} avatarUrls={avatars} />
           <TestimonialsSection />
         </BlurFade>
-      </SectionLayout>
+      </SectionLayout> */}
 
       <SectionLayout id="contact" className="max-w-[1000px] md:px-40 w-full">
         <TextAnimate
@@ -154,13 +86,19 @@ export default function Home() {
         >
           Get in touch for any request
         </TextAnimate>
-        <BlurFade className="w-full" delay={0.5} duration={0.5}>
+        <BlurFade className="w-full max-w-[500px]" delay={0.5} duration={0.5}>
           <ContactForm />
         </BlurFade>
       </SectionLayout>
 
       <SectionLayout id="footer" className="h-40 max-w-[1000px] md:px-40">
-        hi
+        <TextAnimate
+          animation="slideLeft"
+          by="character"
+          className="text-muted-foreground text-sm"
+        >
+          James Oldham © 2025, Auckland, New Zealand
+        </TextAnimate>
       </SectionLayout>
     </main>
   );

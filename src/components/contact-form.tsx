@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import Image from "next/image";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -31,8 +32,18 @@ export function ContactForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+
+    const response = await fetch("/api/sendEmail", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    });
+
+    const data = await response.json();
+
+    console.log("RETURNED DATA", data);
   }
 
   return (
@@ -82,6 +93,12 @@ export function ContactForm() {
           Send Message
         </Button>
       </form>
+      <Image
+        src="https://agentive-public.s3.amazonaws.com/email_sent.svg"
+        alt="Email sent confirmation"
+        width={120}
+        height={100}
+      />
     </Form>
   );
 }

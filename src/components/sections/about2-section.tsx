@@ -22,7 +22,7 @@ const icons = [
 
 const firstRow = icons.slice(0, icons.length);
 
-export const AboutSection = () => {
+export const About2Section = () => {
 
   return (
     <div className="relative w-full flex-col items-center justify-center overflow-hidden py-10 md:px-40">

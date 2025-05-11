@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { MoveRight } from "lucide-react";
 
 const CAROUSEL_ITEMS = [
   {
@@ -18,27 +19,32 @@ const CAROUSEL_ITEMS = [
     description:
       "Agentive is the go-to service delivery platform for AI Automation Agency owners. Easily create AI solutions for your clients. Boasting over 50,000 users.",
     button: "https://agentivehub.com",
+    logo: "/agentive_logo.png",
   },
   {
     src: "/morningsideai.png",
     alt: "Morningside AI",
     title: "Morningside AI Website",
-    description: "Avatar",
+    description:
+      "Morningside AI  is an AI platform built out of Auckland, New Zealand. We help educate, develop and consult on Bespoke Ai soltuion for clients and organizations around the world.",
     button: "https://morningside.ai",
+    logo: "/msai_logo.png",
   },
   {
     src: "/aaaaccelerator.png",
-    alt: "Avatar",
-    title: "Avatar",
-    description: "Avatar",
+    alt: "AAAaccelerator",
+    title: "AAAaccelerator",
+    description: "The AAAaccelerator is the number 1 AI community in the world. We help startups grow and scale their businesses. Founded by Liam Ottley and inventor of the AI Automation Agency.",
     button: "https://aaaaccelerator.com",
+    logo: "/aaa_logo.png",
   },
   {
     src: "/readyrns.png",
     alt: "ReadyRNs",
     title: "ReadyRNs",
-    description: "ReadyRNs",
+    description: "ReadyRNs is an AI powered nursing platform enabling nurses, doctors, practitioners and RN's to learn and educate themselves using a variety of AI tools.",
     button: "https://readyrns.com",
+    logo: "/rns_logo.png",
   },
 ];
 export const CarouselSection = () => {
@@ -55,7 +61,6 @@ export const CarouselSection = () => {
             key={index}
             className="lg:basis-[50%] md:basis-[70%] grid-cols-3  p-2 md:pl-0 pl-5"
           >
-            
             <Card className="relative group overflow-hidden py-0 shadow-md">
               <CardContent className="flex items-center justify-center px-0">
                 <AspectRatio ratio={16 / 8} className="w-full">
@@ -64,18 +69,25 @@ export const CarouselSection = () => {
                     alt={item.alt}
                     width={1280}
                     height={720}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-full object-cover transition duration-300 group-hover:blur-sm"
                   />
                 </AspectRatio>
 
-                <div className="absolute bottom-0 left-0 w-full h-1/3 bg-black/70 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-3 flex flex-col justify-end">
-                  <h3 className="text-lg font-semibold">{item.title}</h3>
+                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-black/90 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-3 flex flex-col justify-end">
+                <Image src={item.logo} alt={item.alt} width={100} height={100} className="w-10 h-10" />
+                  <h3 className="text-xl font-semibold my-1">{item.title}</h3>
                   <p className="text-sm text-gray-300 mb-2">
                     {item.description}
                   </p>
-                  <Button className="mt-auto self-start bg-white text-black text-sm px-3 py-1 rounded hover:bg-gray-200">
-                    {item.button}
-                  </Button>
+                  <div className="flex justify-end">
+                    <Button
+                      onClick={() => window.open(item.button, "_blank")}
+                      variant="secondary"
+                      className="w-fit"
+                    >
+                      Browse <MoveRight className="w-4 h-4" />
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
