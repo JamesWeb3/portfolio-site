@@ -49,9 +49,13 @@ export function NumberTicker({
             minimumFractionDigits: decimalPlaces,
             maximumFractionDigits: decimalPlaces,
           }).format(Number(latest.toFixed(decimalPlaces)));
-      
+
           ref.current.textContent =
-            symbol === "$" ? `${symbol}${formatted}` : `${formatted}${symbol ?? ""}`;
+            symbol === "K+"
+              ? `$${formatted}K+`
+              : symbol === "$"
+              ? `${symbol}${formatted}`
+              : `${formatted}${symbol ?? ""}`;
         }
       }),
     [springValue, decimalPlaces, symbol]

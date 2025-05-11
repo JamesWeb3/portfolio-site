@@ -18,7 +18,7 @@ export const HeroSection = () => {
       <div className="flex flex-col gap-6 w-full h-full justify-center mt-[-50px]">
         <BlurFade>
           <Image
-            className="rounded-full"
+            className="rounded-full w-32 sm:w-40 md:w-48 lg:w-52"
             src="/avatar.png"
             alt="Avatar"
             width={200}
@@ -29,15 +29,15 @@ export const HeroSection = () => {
           <TextAnimate
             animation="slideLeft"
             by="character"
-            className="text-6xl font-bold"
+            className="md:text-6xl text-5xl font-bold"
           >
-            Hey im Jimmy.
+            Hey im Jimmy
           </TextAnimate>
           <TextAnimate
             animation="slideLeft"
             by="word"
             delay={0.3}
-            className="text-4xl font-bold mt-4"
+            className="md:text-4xl text-3xl font-bold mt-4"
           >
             A Software Engineer who loves AI
           </TextAnimate>{" "}
@@ -53,20 +53,20 @@ export const HeroSection = () => {
           ambitious ideas into polished digital experiences.
         </TextAnimate>
         <BlurFade delay={0.3} duration={0.3}>
-        <div className="flex gap-4">
-          <InteractiveHoverButton
-            onClick={() => {
-              handleScroll("contact");
-            }}
-          >
-            Contact Me
-          </InteractiveHoverButton>
-          <ShimmerButton
-            onClick={() => {
-              handleScroll("portfolio");
-            }}
-          >
-            Browse Portfolio
+          <div className="flex gap-4">
+            <InteractiveHoverButton
+              onClick={() => {
+                handleScroll("contact");
+              }}
+            >
+              Contact Me
+            </InteractiveHoverButton>
+            <ShimmerButton
+              onClick={() => {
+                handleScroll("portfolio");
+              }}
+            >
+              Browse Portfolio
             </ShimmerButton>
           </div>
         </BlurFade>

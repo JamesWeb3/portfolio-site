@@ -22,8 +22,8 @@ export const About1Section = () => {
         className="text-muted-foreground"
       >
         In 2021 I graduated from the Auckland University of Technology with a
-        degree in Mechnical Engineer. After struggling to find interest in this
-        career I quickly switched to software.
+        degree in Mechnical Engineering. After struggling to find interest in
+        this career I quickly switched to software. 💻
       </TextAnimate>
 
       <BlurFade delay={0.3} duration={0.3}>
@@ -33,9 +33,9 @@ export const About1Section = () => {
             by="word"
             className="text-muted-foreground"
           >
-            In 2023 I was employed as a fronteng engineer for
+            In 2023 I was employed as a Frontend Engineer for
           </TextAnimate>
-          <BlurFade delay={0.3} duration={0.3}>
+          <BlurFade delay={0.3} duration={0.3} className="mb-[-3px]">
             <Link
               href="https://morningside.ai"
               target="_blank"
@@ -58,8 +58,7 @@ export const About1Section = () => {
             delay={0.3}
           >
             Since then I have worked with some of the biggest clients in the
-            world such as the Milwaukee Bucks NBA team, with a mission of
-            implemetning AI solutions into their business.
+            world implementing AI solutions into business.
           </TextAnimate>
           <TextAnimate
             animation="slideLeft"
@@ -68,7 +67,7 @@ export const About1Section = () => {
             delay={0.5}
           >
             I have also had the opportunity to build and scale startups such as
-            Agentive, now boasting over 50,000 users.
+            Agentive, now boasting over 50,000 users. 📊
           </TextAnimate>
         </div>
       </BlurFade>
@@ -80,36 +79,36 @@ export const About1Section = () => {
       >
         Collectivley, my platforms have gained:
       </TextAnimate>
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
-        <Card>
-          <CardContent>
+      <div className="grid grid-cols-3 gap-2">
+        <Card className="py-4">
+          <CardContent className="px-4">
             <NumberTicker
               value={3}
               symbol="M+"
-              className="text-3xl font-bold"
+              className="md:text-3xl text-xl font-bold"
             />
 
-            <p className="text-muted-foreground text-sm">Website Views</p>
+            <p className="text-muted-foreground md:text-sm text-xs">Website Views</p>
           </CardContent>
         </Card>
-        <Card>
-          <CardContent>
+        <Card className="py-4">
+          <CardContent className="px-4">
             <NumberTicker
               value={190}
               symbol="+"
-              className="text-3xl font-bold"
+              className="md:text-3xl text-xl font-bold"
             />
-            <p className="text-muted-foreground text-sm">Countries Reached</p>
+            <p className="text-muted-foreground md:text-sm text-xs">Countries Reached</p>
           </CardContent>
         </Card>
-        <Card>
-          <CardContent>
+        <Card className="py-4">
+          <CardContent className="px-4">
             <NumberTicker
-              symbol="$"
-              value={500000}
-              className="text-3xl font-bold"
+              symbol="K+"
+              value={500}
+              className="md:text-3xl text-xl font-bold"
             />
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground md:text-sm text-xs">
               Generated for Clients
             </p>
           </CardContent>

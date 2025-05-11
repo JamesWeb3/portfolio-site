@@ -5,7 +5,6 @@ import { SectionLayout } from "@/layouts/section-layout";
 import { CarouselSection } from "@/components/sections/carousel-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { TextAnimate } from "@/components/ui/text-animate";
-import { About2Section } from "@/components/sections/about2-section";
 import { BlurFade } from "@/components/ui/blur-fade";
 
 import { About1Section } from "@/components/sections/about1-section";
@@ -20,13 +19,12 @@ export default function Home() {
         <HeroSection />
       </SectionLayout>
 
-      <SectionLayout id="about" className="max-w-[1000px] md:px-40 ">
+      <SectionLayout
+        id="about"
+        className="max-w-[1000px] md:px-40 sm:px-10 px-4"
+      >
         <About1Section />
       </SectionLayout>
-
-      <div className="w-full max-w-[1000px] lg:mt-[-250px] mt-[-50px]">
-        <About2Section />
-      </div>
 
       <SectionLayout id="portfolio" className="mt-40">
         <div className="flex flex-col gap-4">
