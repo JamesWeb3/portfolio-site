@@ -5,7 +5,7 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { handleScroll } from "@/lib/useScroll";
 import { TextAnimate } from "../ui/text-animate";
 import { BlurFade } from "../ui/blur-fade";
-
+//
 export const HeroSection = () => {
   return (
     <>
