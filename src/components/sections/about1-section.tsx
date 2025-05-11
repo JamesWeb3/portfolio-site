@@ -73,14 +73,14 @@ export const About1Section = () => {
         </div>
       </BlurFade>
       <TextAnimate
-            animation="slideLeft"
-            by="word"
-            className="text-muted-foreground"
-            delay={1}
-          >
-        Collectivley, My platforms have gained:
+        animation="slideLeft"
+        by="word"
+        className="text-muted-foreground"
+        delay={1}
+      >
+        Collectivley, my platforms have gained:
       </TextAnimate>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
         <Card>
           <CardContent>
             <NumberTicker
@@ -94,7 +94,11 @@ export const About1Section = () => {
         </Card>
         <Card>
           <CardContent>
-            <NumberTicker value={190} symbol="+" className="text-3xl font-bold" />
+            <NumberTicker
+              value={190}
+              symbol="+"
+              className="text-3xl font-bold"
+            />
             <p className="text-muted-foreground text-sm">Countries Reached</p>
           </CardContent>
         </Card>
@@ -105,7 +109,9 @@ export const About1Section = () => {
               value={500000}
               className="text-3xl font-bold"
             />
-            <p className="text-muted-foreground text-sm">Generated for Clients</p>
+            <p className="text-muted-foreground text-sm">
+              Generated for Clients
+            </p>
           </CardContent>
         </Card>
       </div>

@@ -9,6 +9,9 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
+import { useState } from "react";
+import { Loader2 } from "lucide-react";
+import { BlurFade } from "./ui/blur-fade";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -23,6 +26,9 @@ const formSchema = z.object({
 });
 
 export function ContactForm() {
+  const [messageSent, setMessageSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,72 +39,90 @@ export function ContactForm() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    setIsLoading(true);
 
-    const response = await fetch("/api/sendEmail", {
+    await fetch("/api/sendEmail", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
     });
 
-    const data = await response.json();
+    setMessageSent(true);
 
-    console.log("RETURNED DATA", data);
+    setIsLoading(false);
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-full">
-        <div className="grid sm:grid-cols-2 grid-cols-1 gap-6 justify-between">
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input placeholder="Full Name" type="name" {...field} />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Input placeholder="Email" type="email" {...field} />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-        </div>
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Textarea
-                  className="resize-none h-40"
-                  placeholder="Leave your message here ..."
-                  {...field}
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-
-        <Button className="w-full" size="lg" type="submit">
-          Send Message
-        </Button>
-      </form>
-      <Image
-        src="https://agentive-public.s3.amazonaws.com/email_sent.svg"
-        alt="Email sent confirmation"
-        width={120}
-        height={100}
-      />
-    </Form>
+    <>
+      {messageSent ? (
+        <BlurFade delay={0.5} duration={0.5}>
+          <div className="flex flex-col items-center justify-center mt-8 gap-4">
+            <Image
+              src="https://agentive-public.s3.amazonaws.com/email_sent.svg"
+              alt="Email sent confirmation"
+              width={120}
+              height={120}
+            />
+            <p className="text-muted-foreground text-sm">
+              Your Message has been sent!
+            </p>
+          </div>
+        </BlurFade>
+      ) : (
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-6 w-full"
+          >
+            <div className="grid sm:grid-cols-2 grid-cols-1 gap-6 justify-between">
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem className="w-full">
+                    <FormControl>
+                      <Input placeholder="Full Name" type="name" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem className="w-full">
+                    <FormControl>
+                      <Input placeholder="Email" type="email" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </div>
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Textarea
+                      className="resize-none h-40"
+                      placeholder="Leave your message here ..."
+                      {...field}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <Button className="w-full" size="lg" type="submit">
+              {isLoading ? (
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+              ) : (
+                <p> Send Message</p>
+              )}
+            </Button>
+          </form>
+        </Form>
+      )}
+    </>
   );
 }

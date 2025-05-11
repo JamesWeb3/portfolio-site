@@ -5,8 +5,6 @@ export async function POST(req: Request) {
 
   const { name, email, message } = data;
 
-  console.log("DATA ZZ", data);
-
   const res = await fetch(
     "https://hook.eu2.make.com/z4xrrksb4d4b18bopjm9f1siaqi2rplg",
     {

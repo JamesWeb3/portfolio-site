@@ -21,10 +21,10 @@ export default function Home() {
       </SectionLayout>
 
       <SectionLayout id="about" className="max-w-[1000px] md:px-40 ">
-       <About1Section/>
+        <About1Section />
       </SectionLayout>
 
-      <div className="w-full max-w-[1000px] mt-[-250px]">
+      <div className="w-full max-w-[1000px] lg:mt-[-250px] mt-[-50px]">
         <About2Section />
       </div>
 
@@ -91,13 +91,20 @@ export default function Home() {
         </BlurFade>
       </SectionLayout>
 
-      <SectionLayout id="footer" className="h-40 max-w-[1000px] md:px-40">
+      <SectionLayout id="footer" className="h-40 max-w-[1000px] md:px-40 gap-1">
         <TextAnimate
           animation="slideLeft"
           by="character"
           className="text-muted-foreground text-sm"
         >
-          James Oldham © 2025, Auckland, New Zealand
+          James Oldham © 2025
+        </TextAnimate>
+        <TextAnimate
+          animation="slideLeft"
+          by="character"
+          className="text-muted-foreground text-sm"
+        >
+          Auckland, New Zealand
         </TextAnimate>
       </SectionLayout>
     </main>

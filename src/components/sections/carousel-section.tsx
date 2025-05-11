@@ -15,7 +15,7 @@ const CAROUSEL_ITEMS = [
   {
     src: "/agentive.png",
     alt: "Agentive",
-    title: "Agentive SaaS",
+    title: "Agentive",
     description:
       "Agentive is the go-to service delivery platform for AI Automation Agency owners. Easily create AI solutions for your clients. Boasting over 50,000 users.",
     button: "https://agentivehub.com",
@@ -34,7 +34,8 @@ const CAROUSEL_ITEMS = [
     src: "/aaaaccelerator.png",
     alt: "AAAaccelerator",
     title: "AAAaccelerator",
-    description: "The AAAaccelerator is the number 1 AI community in the world. We help startups grow and scale their businesses. Founded by Liam Ottley and inventor of the AI Automation Agency.",
+    description:
+      "The AAAaccelerator is the number 1 AI community in the world. We help startups grow and scale their businesses. Founded by Liam Ottley and inventor of the AI Automation Agency.",
     button: "https://aaaaccelerator.com",
     logo: "/aaa_logo.png",
   },
@@ -42,7 +43,8 @@ const CAROUSEL_ITEMS = [
     src: "/readyrns.png",
     alt: "ReadyRNs",
     title: "ReadyRNs",
-    description: "ReadyRNs is an AI powered nursing platform enabling nurses, doctors, practitioners and RN's to learn and educate themselves using a variety of AI tools.",
+    description:
+      "ReadyRNs is an AI powered nursing platform enabling nurses, doctors, practitioners and RN's to learn and educate themselves using a variety of AI tools.",
     button: "https://readyrns.com",
     logo: "/rns_logo.png",
   },
@@ -73,13 +75,15 @@ export const CarouselSection = () => {
                   />
                 </AspectRatio>
 
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-black/90 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-3 flex flex-col justify-end">
-                <Image src={item.logo} alt={item.alt} width={100} height={100} className="w-10 h-10" />
-                  <h3 className="text-xl font-semibold my-1">{item.title}</h3>
-                  <p className="text-sm text-gray-300 mb-2">
-                    {item.description}
-                  </p>
-                  <div className="flex justify-end">
+                <div className="absolute bottom-0 left-0 w-full h-[60%] bg-black/90 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-3 flex flex-col justify-end">
+                  <div className="flex items-center justify-between">
+                    <Image
+                      src={item.logo}
+                      alt={item.alt}
+                      width={100}
+                      height={100}
+                      className="w-10 h-10"
+                    />
                     <Button
                       onClick={() => window.open(item.button, "_blank")}
                       variant="secondary"
@@ -88,6 +92,12 @@ export const CarouselSection = () => {
                       Browse <MoveRight className="w-4 h-4" />
                     </Button>
                   </div>
+
+                  <h3 className="text-xl font-semibold my-1">{item.title}</h3>
+                  <p className="text-sm text-gray-300 mb-2">
+                    {item.description}
+                  </p>
+                  <div className="flex justify-end"></div>
                 </div>
               </CardContent>
             </Card>
