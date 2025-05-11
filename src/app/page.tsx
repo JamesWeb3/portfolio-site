@@ -14,19 +14,19 @@ export default function Home() {
     <main className="flex flex-col items-center mx-auto overflow-hidden">
       <SectionLayout
         id="hero"
-        className="max-w-[1000px] md:px-40 sm:px-10 px-4 md:mb-0 mb-36"
+        className="max-w-[1000px] md:px-40 sm:px-10 px-4 md:mb-0 mb-28"
       >
         <HeroSection />
       </SectionLayout>
 
       <SectionLayout
         id="about"
-        className="max-w-[1000px] md:px-40 sm:px-10 px-4 md:my-0 my-36"
+        className="max-w-[1000px] md:px-40 sm:px-10 px-4 md:my-0 my-28"
       >
         <About1Section />
       </SectionLayout>
 
-      <SectionLayout id="portfolio" className="px-4 md:my-0 my-36">
+      <SectionLayout id="portfolio" className="px-4 md:my-0 my-28">
         <div className="flex flex-col gap-4">
           <TextAnimate
             animation="slideLeft"
@@ -71,7 +71,7 @@ export default function Home() {
 
       <SectionLayout
         id="contact"
-        className="max-w-[1000px] md:px-40 w-full md:my-0 my-36"
+        className="max-w-[1000px] md:px-40 w-full md:my-0 my-28"
       >
         <TextAnimate
           animation="slideLeft"
@@ -92,7 +92,10 @@ export default function Home() {
         </BlurFade>
       </SectionLayout>
 
-      <SectionLayout id="footer" className="h-40 max-w-[1000px] md:px-40 gap-1">
+      <SectionLayout
+        id="footer"
+        className="!h-40 max-w-[1000px] md:px-40 gap-1"
+      >
         <TextAnimate
           animation="slideLeft"
           by="character"
