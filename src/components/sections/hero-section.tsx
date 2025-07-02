@@ -19,7 +19,7 @@ export const HeroSection = () => {
         <BlurFade>
           <Image
             className="rounded-full w-32 sm:w-40 md:w-48 lg:w-52"
-            src="/avatar.png"
+            src="/avatar.jpeg"
             alt="Avatar"
             width={200}
             height={200}
