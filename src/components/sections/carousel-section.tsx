@@ -5,50 +5,66 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardTitle,
+} from "@/components/ui/card";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
-import { Button } from "../ui/button";
-import { MoveRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const CAROUSEL_ITEMS = [
   {
-    src: "/agentive.png",
+    src: "/image1.png",
     alt: "Agentive",
     title: "Agentive",
     description:
       "Agentive is the go-to service delivery platform for AI Automation Agency owners. Easily create AI solutions for your clients. Boasting over 50,000 users.",
     button: "https://agentivehub.com",
     logo: "/agentive_logo.png",
+    tags: ["Saas", "Full-stack", "No-code", "Product Design"],
   },
   {
-    src: "/morningsideai.png",
+    src: "/image2.png",
     alt: "Morningside AI",
     title: "Morningside AI Website",
     description:
       "Morningside AI  is an AI platform built out of Auckland, New Zealand. We help educate, develop and consult on Bespoke Ai soltuion for clients and organizations around the world.",
     button: "https://morningside.ai",
     logo: "/msai_logo.png",
+    tags: ["Website", "UI Design", "Lead Funnel"],
   },
   {
-    src: "/aaaaccelerator.png",
+    src: "/image4.png",
+    alt: "ReadyRNs",
+    title: "ReadyRNs",
+    description:
+      "ReadyRNs is an AI powered nursing platform enabling nurses, doctors, practitioners and RN's to learn and educate themselves using a variety of AI tools.",
+    logo: "/rns_logo.png",
+    tags: ["Saas", "Medical Platform", "LLM Orchestration"],
+  },
+  {
+    src: "/image3.png",
     alt: "AAAaccelerator",
     title: "AAAaccelerator",
     description:
       "The AAAaccelerator is the number 1 AI community in the world. We help startups grow and scale their businesses. Founded by Liam Ottley and inventor of the AI Automation Agency.",
     button: "https://aaaaccelerator.com",
     logo: "/aaa_logo.png",
+    tags: ["Analytics Tracking", "2025", "Agency Platform"],
   },
-  {
-    src: "/readyrns.png",
-    alt: "ReadyRNs",
-    title: "ReadyRNs",
-    description:
-      "ReadyRNs is an AI powered nursing platform enabling nurses, doctors, practitioners and RN's to learn and educate themselves using a variety of AI tools.",
-    button: "https://readyrns.com",
-    logo: "/rns_logo.png",
-  },
+
 ];
+
+const badgeStyles = [
+  { bg: "bg-red-100", text: "text-red-800" },
+  { bg: "bg-blue-100", text: "text-blue-800" },
+  { bg: "bg-green-100", text: "text-green-800" },
+  { bg: "bg-purple-100", text: "text-purple-800" },
+];
+
 export const CarouselSection = () => {
   return (
     <Carousel
@@ -57,47 +73,54 @@ export const CarouselSection = () => {
       }}
       className="w-full"
     >
-      <CarouselContent className="gap-6">
+      <CarouselContent className="gap-4">
         {CAROUSEL_ITEMS.map((item, index) => (
           <CarouselItem
             key={index}
-            className="lg:basis-[50%] md:basis-[70%] grid-cols-3  p-2 md:pl-0 pl-5"
+            className="md:basis-[45%] basis-[90%] p-2 pl-3 max-w-[400px]"
           >
-            <Card className="relative group overflow-hidden py-0 shadow-md">
-              <CardContent className="flex items-center justify-center px-0">
+            <Card className="py-0 shadow-md border-none bg-white">
+              <CardContent className="flex flex-col gap-4 px-0 p-6">
+                <div className="flex gap-2">
+                  {item.tags.map((tag, i) => {
+                    const { bg, text } = badgeStyles[i % badgeStyles.length];
+                    return (
+                      <Badge
+                        key={i}
+                        className={`${bg} ${text} border-none font-medium`}
+                      >
+                        {tag}
+                      </Badge>
+                    );
+                  })}
+                </div>
                 <AspectRatio ratio={16 / 8} className="w-full">
                   <Image
                     src={item.src}
                     alt={item.alt}
                     width={1280}
                     height={720}
-                    className="w-full h-full object-cover transition duration-300 group-hover:blur-sm"
+                    onClick={() => item.button && window.open(item.button, "_blank")}
+                    className={`w-full max-w-[400px] max-h-[180px] h-auto object-cover rounded-xl mx-auto   ${item.button ? "cursor-pointer hover:blur-sm duration-300" : "cursor-default"}`}
                   />
                 </AspectRatio>
 
-                <div className="absolute bottom-0 left-0 w-full h-[60%] bg-black/90 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-3 flex flex-col justify-end">
-                  <div className="flex items-center justify-between">
+                <div className="flex flex-col mt-2">
+                  <div className="flex items-center gap-2">
                     <Image
                       src={item.logo}
                       alt={item.alt}
-                      width={100}
-                      height={100}
-                      className="w-10 h-10"
+                      width={60}
+                      height={60}
+                      className="w-6 h-6 rounded-full"
                     />
-                    <Button
-                      onClick={() => window.open(item.button, "_blank")}
-                      variant="secondary"
-                      className="w-fit"
-                    >
-                      Browse <MoveRight className="w-4 h-4" />
-                    </Button>
+                    <CardTitle className="text-xl font-semibold my-1">
+                      {item.title}
+                    </CardTitle>
                   </div>
-
-                  <h3 className="text-xl font-semibold my-1">{item.title}</h3>
-                  <p className="text-sm text-gray-300 mb-2">
+                  <CardDescription className="text-muted-foreground text-sm">
                     {item.description}
-                  </p>
-                  <div className="flex justify-end"></div>
+                  </CardDescription>
                 </div>
               </CardContent>
             </Card>
@@ -109,8 +132,6 @@ export const CarouselSection = () => {
         <CarouselPrevious />
         <CarouselNext />
       </div>
-      <div className="pointer-events-none absolute inset-y-0 left-0 lg:w-1/4 md:w-1/6 bg-gradient-to-r from-background"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 lg:w-1/4 md:w-1/6 bg-gradient-to-l from-background"></div>
     </Carousel>
   );
 };

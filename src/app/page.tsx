@@ -8,6 +8,7 @@ import { TextAnimate } from "@/components/ui/text-animate";
 import { BlurFade } from "@/components/ui/blur-fade";
 
 import { About1Section } from "@/components/sections/about1-section";
+import { Briefcase } from "lucide-react";
 
 export default function Home() {
   return (
@@ -26,26 +27,24 @@ export default function Home() {
         <About1Section />
       </SectionLayout>
 
-      <SectionLayout id="portfolio" className="px-4 md:my-0 my-28">
-        <div className="flex flex-col gap-4">
-          <TextAnimate
-            animation="slideLeft"
-            by="character"
-            className="text-4xl font-bold w-full text-center"
-          >
-            Portfolio
-          </TextAnimate>
-          <TextAnimate
-            animation="slideLeft"
-            by="character"
-            className="w-full text-center text-muted-foreground"
-          >
-            Browse the different startups and projects I have worked on.
-          </TextAnimate>
+      <SectionLayout id="portfolio" className="px-4 md:my-0 my-28 bg-muted ">
+        <div className="max-w-[1200px] w-full">
+          <div className="flex gap-4 w-full items-center mb-4">
+            <div className="bg-black rounded-full p-2 flex flex-col items-center justify-center mx-auto w-10 h-10">
+              <Briefcase className="w-8 h-8 justify-center text-white" />
+            </div>
+            <TextAnimate
+              animation="slideLeft"
+              by="character"
+              className="text-4xl font-bold w-full text-left"
+            >
+              Browse my Portfolio
+            </TextAnimate>
+          </div>
+          <BlurFade className="w-full" delay={0.5} duration={0.5}>
+            <CarouselSection />
+          </BlurFade>
         </div>
-        <BlurFade className="w-full" delay={0.5} duration={0.5}>
-          <CarouselSection />
-        </BlurFade>
       </SectionLayout>
 
       {/* <SectionLayout className="max-w-[1000px] w-full" id="testimonials">
