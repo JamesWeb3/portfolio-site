@@ -4,8 +4,8 @@ import "./globals.css";
 import { VisitorProvider } from "@/context/useTrackVisitor";
 
 export const metadata: Metadata = {
-  title: "James Oldham Portfolio Site",
-  description: "James Oldham Portfolio Site",
+  title: "James Oldham - Software Engineer",
+  description: "Hey i'm James, a software Engineer who loves AI.",
   icons: {
     icon: "/favicon.ico",
   },
