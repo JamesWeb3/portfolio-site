@@ -1,11 +1,10 @@
 import { DockDemo } from "@/components/dock-component";
 import Image from "next/image";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { handleScroll } from "@/lib/useScroll";
 import { TextAnimate } from "../ui/text-animate";
 import { BlurFade } from "../ui/blur-fade";
-//
+
 export const HeroSection = () => {
   return (
     <>
@@ -54,13 +53,7 @@ export const HeroSection = () => {
         </TextAnimate>
         <BlurFade delay={0.3} duration={0.3}>
           <div className="flex gap-4">
-            <InteractiveHoverButton
-              onClick={() => {
-                handleScroll("contact");
-              }}
-            >
-              Contact Me
-            </InteractiveHoverButton>
+          
             <ShimmerButton
               onClick={() => {
                 handleScroll("portfolio");

@@ -2,8 +2,6 @@ import { TextAnimate } from "../ui/text-animate";
 import { BlurFade } from "../ui/blur-fade";
 import { Card, CardContent } from "../ui/card";
 import { NumberTicker } from "../ui/number-ticker";
-import Link from "next/link";
-import Image from "next/image";
 
 export const About1Section = () => {
   return (
@@ -33,32 +31,18 @@ export const About1Section = () => {
             by="word"
             className="text-muted-foreground"
           >
-            In 2023 I was employed as a Frontend Engineer for
+            Today I freelance and work with clients globally on custom AI
+            solutions — from voice agents and LLM orchestration to full-stack
+            platforms.
           </TextAnimate>
-          <BlurFade delay={0.3} duration={0.3} className="mb-[-3px]">
-            <Link
-              href="https://morningside.ai"
-              target="_blank"
-              className="text-[#469c71] hover:text-[#469c71]/80 transition-all duration-200 font-semibold"
-            >
-              Morningside AI
-            </Link>
-            <Image
-              src="/msai_logo.png"
-              alt="Morningside Logo"
-              width={20}
-              height={20}
-              className="rounded-full inline-block mb-1 ml-2"
-            />
-          </BlurFade>
           <TextAnimate
             animation="slideLeft"
             by="word"
             className="text-muted-foreground"
             delay={0.3}
           >
-            Since then I have worked with some of the biggest clients in the
-            world implementing AI solutions into business.
+            I have worked with some of the biggest companies in the
+            world implementing AI into their business.
           </TextAnimate>
           <TextAnimate
             animation="slideLeft"

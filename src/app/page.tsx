@@ -27,7 +27,7 @@ export default function Home() {
         <About1Section />
       </SectionLayout>
 
-      <SectionLayout id="portfolio" className="px-4 md:my-0 my-28 bg-muted ">
+      <SectionLayout id="portfolio" className="px-4 md:my-0 my-28 bg-muted h-full! ">
         <div className="max-w-[1200px] w-full">
           <div className="flex gap-4 w-full items-center mb-4">
             <div className="bg-black rounded-full p-2 flex flex-col items-center justify-center mx-auto w-10 h-10">
@@ -47,26 +47,7 @@ export default function Home() {
         </div>
       </SectionLayout>
 
-      {/* <SectionLayout className="max-w-[1000px] w-full" id="testimonials">
-        <TextAnimate
-          animation="slideLeft"
-          by="character"
-          className="text-4xl font-bold"
-        >
-          Testimonials
-        </TextAnimate>
-        <TextAnimate
-          animation="slideLeft"
-          by="character"
-          className="text-muted-foreground text-sm"
-        >
-          Here are some of the testimonials from my clients.
-        </TextAnimate>
-        <BlurFade delay={0.5} duration={0.5}>
-          <AvatarCircles numPeople={4} avatarUrls={avatars} />
-          <TestimonialsSection />
-        </BlurFade>
-      </SectionLayout> */}
+
 
       <SectionLayout
         id="contact"
